@@ -26,10 +26,10 @@ function Counter() {
 export default Counter;
 ```
 
-Now to add state to our component, at the top we have to import `useState`. Inside the component we will set up a state variable called `count` to store the number. We shall set it to zero initially.
+Now, to add state to our component, we have to import `useState`. Inside the component, we will set up a state variable called `count` to store the number. We shall set it to zero initially.
 
 ```jsx
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Counter() {
   // The format is:
@@ -48,7 +48,7 @@ function Counter() {
 export default Counter;
 ```
 
-_Note: React reserves the word `state` for this special purpose and will watch state for changes whenever `setState()` is called (in this case, called `setCount()`)._
+_Note: React will watch state for changes whenever `setState()` is called (in this case, called `setCount()`).
 
 ## Displaying state
 
@@ -71,7 +71,7 @@ function Counter() {
 
 ## Setting state
 
-In components we use the `setState()` method that is available to us from state variable declaration. The `setState()` method accepts any value to reassign to it's corresponding state variable.
+In components we use the `setState()` method that is available to us from state variable declaration. The `setState()` method accepts any value to set its corresponding state variable to.
 
 ```jsx
 function Counter() {
@@ -93,7 +93,7 @@ React recognizes the change of state and will re-render the component showing th
 
 What happens if we try to change state directly?
 
-```
+```jsx
 <button onClick={() => count = count + 1} >Count Up</button>
 ```
 
@@ -151,20 +151,18 @@ Refresh the browser, and open the JavaScript console and run this code. Then cli
 
 ## Review ES6 Spread Operator to update State holding Arrays or Objects
 
-Occasionally we will want update arrays that already contain elements or objects containing many properties and we may only want to update a single property and the spread operator makes this easy without having to type back in all the same information again.
+Sometimes we will want to update arrays that already contain elements or objects containing properties. The spread operator makes this easy without having to type back in all the same information again.
 
-Here is a quick review of the `...` spread operator. It can be used to take an existing array and add another element to it while still preserving the original array. For example,
+Here is a quick review of the `...` spread operator. It can be used to take an existing array and add another element to it, while still preserving the original array. For example:
 
 ```javascript
-let fruit = ["Apples", "Oranges"];
-// let updatedFruit = [['Apples','Oranges'], 'Bananas]
-// let updatedFruit = ['Apples','Oranges', 'Bananas]
-let updatedFruit = [...fruit, "Bananas"];
+const fruit = ["Apples", "Oranges"];
+const updatedFruit = [...fruit, "Bananas"];
 ```
 
 In the code above the `...` spread operator takes all the existing elements inside the `fruit` array and puts them into our new `updatedFruit` array, and then we also add `Bananas` as well.
 
-We could have used `fruit.push('Bananas');` and directly added a banana to the first array, but that would mutate the original array. This is a no-no for React state. We never want to mutate our state directly! It is a best practice to create a new variable to store the updated state and then pass that into the `setState()` method.
+We could have used `fruit.push('Bananas');` and directly added a banana to the first array, but that would mutate the original array. This is a no-no for React state. We never want to mutate our state directly! It is best practice to pass in a new, updated state to the `setState()` method.
 
 We can also use the `...` spread operator on Objects as well.
 
@@ -173,26 +171,25 @@ let person = { id: 1, name: "Bob", age: 72 };
 let updatedPerson = { ...person, age: 73 };
 ```
 
-This will only change age but also include all of the other properties of `person` as well. So the value of upDated person is now `{ id: 1, name: 'Bob', age: 73 }`.
+This will only change age, but it will also include all of the other properties of `person` as well. So the value of `updatedPerson` is now `{ id: 1, name: 'Bob', age: 73 }`.
 
 ## setState() and Spread Operators
 
 To demonstrate how this works together with `setState()`, let's create a new component.
 
-- Make a new file in the `src/`folder and call it `Fruits.js`
-- Go to `index.js` and import this new component, like so:
+- Make a new file in the `src/`folder and call it `Fruits.jsx`
+- Go to `main.jsx` and import this new component, like so:
 
 ```js
-// import App from './App';
 import App from "./Fruits";
 ```
 
-What this does is it imports the `Fruits` component and renames it on the `index.js` end, so that it displays a new component instead. We will be using this technique in the future to demonstrate more things about React.
+What this does is it imports the `Fruits` component and renames it on the `main.jsx` end, so that it displays a new component instead. We will be using this technique sometimes to demonstrate more things about React.
 
-Import `useState`, and create a functional component called `Fruits`
+Import `useState` and create a functional component called `Fruits`:
 
 ``` js
-import React, {useState} from 'react';
+import {useState} from 'react';
 
 function Fruits() {
 
@@ -236,7 +233,7 @@ If you click on the button, you will see that Apple is repeatedly added to the `
 Your component should look something like this:
 
 ```js
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Fruits() {
   const [fruits, setFruits] = useState(["Apple", "Orange"]);
@@ -259,7 +256,7 @@ function Fruits() {
 export default Fruits;
 ```
 
-We can even take this a step further and turn these buttons into it's own component!!! This is what that component, `Button.js`, might look like:
+We can even take this a step further and turn these buttons into it's own component!!! This is what that component, `Button.jsx`, might look like:
 
 ```js
 function Button(props) {
@@ -276,7 +273,7 @@ export default Button;
 And this is what the updated `Fruits.jsx` looks like using our new buttons:
 
 ```js
-import React, { useState } from "react";
+import { useState } from "react";
 import Button from "./Button";
 
 function Fruits() {

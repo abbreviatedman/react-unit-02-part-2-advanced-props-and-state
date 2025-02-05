@@ -4,7 +4,7 @@
 
 ## Exercise Overview
 
-In this exercise we will be building a task list that will allow users to write a list of things they want to remember to do. They should be able to add new items and remove existing items from the list. They should be able to set an importance level: low, medium, or high and this should effect the background color of each task.
+In this exercise we will be building a task list that will allow users to write a list of things they want to remember to do. They should be able to add new items and remove existing items from the list. They should be able to set an importance level: low, medium, or high, and this should effect the background color of each task.
 
 ## Set Up And Run A New React App
 
@@ -381,7 +381,7 @@ function handleClick(e) {
 }
 ```
 
-Note that we are using `parseInt()` to convert the id number which is a type of string into a number so it will be easier to match with the id number on a task in our tasks array.
+Note that we are using `parseInt()` to convert the id number which is a type of string into a number so it will be easier to match with the id number in a task in our tasks array.
 
 41. Back in our `<button>` we want to add our `onClick={}` event listener.
 
