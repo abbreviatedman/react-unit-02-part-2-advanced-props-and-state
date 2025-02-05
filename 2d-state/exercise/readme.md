@@ -6,35 +6,40 @@
 
 In this exercise we will be building a task list that will allow users to write a list of things they want to remember to do. They should be able to add new items and remove existing items from the list. They should be able to set an importance level: low, medium, or high and this should effect the background color of each task.
 
-## Set Up A New Create-React-App Project
+## Set Up And Run A New React App
 
-1. Open VS code and then open your terminal from the menus at the top of the screen under `View > Terminal` or use the shortcut key **Ctrl+`**.
+1. Open the terminal to the `exercise` directory--the simplest way to do so is to right-click on the `exercise` folder in VS Code and select "Open in Integrated Terminal".
 
-2. In your terminal, type `npx create-react-app task-list`. Here we are naming our project `task-list`. Wait while a new project is set up. It will display "Happy hacking!" when it's done.
+2. In the terminal, type `npm create vite task-manager-app`. Here we are naming our project task-manager-app.
 
-3. Then, in your terminal, type `cd task-list` to enter the project folder.
+3. Choose React and then JavaScript from the menus, using arrow keys and Enter/Return.
+
+4. Now you want to either:
+
+- change directory to the new project folder by typing `cd task-manager-app` in the terminal
+- or, **preferably**, open the project folder in VS Code by choosing File > Open Folder from the menus and selecting the task-manager-app folder, then open the terminal with Terminal > New Terminal from the menus (or Ctrl+`).
+
+5. Install dependencies by entering `npm install` in the terminal.
+
+6. Run the app by typing `npm run dev` in the terminal. This will provide a clickable link to open the app in your default browser, or you can navigate to the localhost URL in your browser.
 
 ## Exercise Assets
 
-4. Move the image files from the `assets` folder outside the create-react-app project folder into the create-react-app folder `public`, so that the images will be accessible to your application.
+7. Move the image files from the `assets` directory outside the project directory into the directory `public`, so that the images will be accessible to your application.
 
 ## Install Bootstrap
 
-5. Next let's import Bootstrap a front-end framework that provides CSS code to make our project beautiful. In your terminal, type `npm i bootstrap@5.2.3`. This will install the package into our project.
-
-## Start Node Test Server
-
-6. In your terminal, type `npm start` to start a node test server. This should open a new tab in your browser for **localhost:3000**.
+8. Next let's import Bootstrap, a front-end framework that provides CSS code to make our project beautiful. In your terminal, type `npm install bootstrap@5.2.3`. This will install the package into our project.
 
 ## Import Bootstrap
 
-7. Then, in VS Code, open the **/src/index.js** file and import the bootstrap css styles by typing the following line `import 'bootstrap/dist/css/bootstrap.css';` placing it just after the import of ReactDOM and just before our import of **index.css**.
+9. Then, in VS Code, open the **/src/main.jsx** file and import the bootstrap css styles by typing the following line `import 'bootstrap/dist/css/bootstrap.css';` placing it just after the import of ReactDOM and just before our import of **index.css**.
 
 ## Creating the App Component
 
-8. Open **/src/App.js**. This file is an example component that create-react-app starts with. You can delete everything in this file.
+10. Open **/src/App.jsx**. This file is an example component that create-react-app starts with. You can delete everything in this file.
 
-9. Next, create the boiler plate code for a functional component (including importing React and exporting the function). Name the function `App`.
+11. Next, create the boiler plate code for a functional component (including importing React and exporting the function). Name the function `App`.
 
 ```jsx
 import React from 'react';
@@ -46,7 +51,7 @@ function App() {
 export default App;
 ```
 
-9. Fill the empty return statement with the following elements:
+12. Fill the empty return statement with the following elements:
 
 ```jsx
 <div className="container">
@@ -66,11 +71,11 @@ export default App;
 
 ## Create AddTask component
 
-10. From the File Explorer from the left side panel **right click** on the **/src/** folder and select **New File**. Name the file `AddTask.js`.
+13. From the File Explorer from the left side panel, **right click** in the **/src/** folder and select **New File**. Name the file `AddTask.jsx`.
 
-11. Open the **/src/AddTask.js** file and create the basic functional component scaffolding. Name the component `AddTask`.
+14. Open the **/src/AddTask.jsx** file and create the basic functional component scaffolding. Name the component `AddTask`.
 
-12. Fill the empty return statement the following elements:
+15. Fill the empty return statement the following elements:
 
 ```jsx
 <form>
@@ -88,13 +93,13 @@ export default App;
 
 Here we created a form with a text input for the task description, a select menu with the different options for importance level, and lastly a submit button.
 
-13. Save this file and head back to **/src/App.js** and after the React import, include an import to the `AddTask` component.
+16. Save this file and head back to **/src/App.jsx** and after the React import, include an import to the `AddTask` component.
 
 ```javascript
 import AddTask from "./AddTask";
 ```
 
-14. Then replace the comment `{/* Add Task form will go here... */}` with our `<AddTask />` component.
+17. Then replace the comment `{/* Add Task form will go here... */}` with our `<AddTask />` component.
 
 ```jsx
 function App() {
@@ -116,17 +121,17 @@ function App() {
 }
 ```
 
-15. Save all files and head to the browser. Your form should be displaying.
+18. Save all files and head to the browser. Your form should be displaying.
 
 ## Create Task component
 
 Let's create a single task with some place holder content.
 
-16. From the File Explorer from the left side panel **right click** on the **/src/** folder and select **New File**. Name the file `Task.js`.
+19. From the File Explorer from the left side panel **right click** on the **/src/** folder and select **New File**. Name the file `Task.jsx`.
 
-17. Open the **/src/Task.js** file and create the basic functional component scaffolding (including importing React and exporting the function). Name the component `Task`.
+20. Open the **/src/Task.jsx** file and create the basic functional component scaffolding (including importing React and exporting the function). Name the component `Task`.
 
-18. Fill the return statement's parentheses with the following elements:
+21. Fill the return statement's parentheses with the following elements:
 
 ```jsx
 <li>
@@ -137,13 +142,13 @@ Let's create a single task with some place holder content.
 
 Here we created a list item that contains example text of what a task description might look like. This is followed by a button labeled with an `X` that will allow us to remove tasks from our list.
 
-19. Save this file and head back to **/src/App.js** and after the React import, include an import to the `Task` component.
+22. Save this file and head back to **/src/App.jsx** and after the React import, include an import to the `Task` component.
 
 ```javascript
 import Task from "./Task";
 ```
 
-20. Then replace the comment `{/* Task list goes here... */}` with our `<Task />` component.
+23. Then replace the comment `{/* Task list goes here... */}` with our `<Task />` component.
 
 ```jsx
 function App() {
@@ -167,17 +172,17 @@ function App() {
 }
 ```
 
-21. Save all files and head to the browser. Your task should be displaying.
+24. Save all files and head to the browser. Your task should be displaying.
 
 ## Adding Application State
 
-22. On `App.js` where the imports belong, import `useState`
+25. In `App.jsx` where the imports belong, import `useState`
 
 ```jsx
 import React, { useState } from "react";
 ```
 
-23. Inside the `App` component, declare a variable that will contain the app's initial set of data. Then, set up a `useState` for tasks:
+26. Inside the `App` component, declare a variable that will contain the app's initial set of data. Then, set up a `useState` for tasks:
 
 ```jsx
 const initialTasks = [
@@ -191,7 +196,7 @@ const [tasks, setTasks] = useState(initialTasks);
 
 ## Displaying Multiple Tasks And Passing State Through Props
 
-24. Replace the single instance of the `<Task />` with the following code:
+27. Replace the single instance of the `<Task />` with the following code:
 
 ```jsx
 {
@@ -201,7 +206,7 @@ const [tasks, setTasks] = useState(initialTasks);
 
 Here inside the `<ol>` ordered list element we are calling map on the tasks that are stored in our component state. Each "task" from the map function is representative of a singular task object. We then use the attribute we created called `task={}` to pass in our task state as a prop. We also added the `key={}` and passed it the id of our task as React requires a unique identifier for each component.
 
-Here is the current code for `App.js`:
+Here is the current code for `App.jsx`:
 
 ```jsx
 import AddTask from "./AddTask";
@@ -244,7 +249,7 @@ export default App;
 
 ## Receiving The State Passed As Prop To The Child Component
 
-25. Open **/src/Task.js**, and replace the dummy text "Walk the dog." with `{ props.task.description }`.
+28. Open **/src/Task.jsx**, and replace the dummy text "Walk the dog." with `{ props.task.description }`.
 
 ```jsx
 function Task(props) {
@@ -257,11 +262,11 @@ function Task(props) {
 }
 ```
 
-26. Save all the files and head to the browser. You should see the three tasks displaying.
+29. Save all the files and head to the browser. You should see the three tasks displaying.
 
 ## Adding New Data To Our State
 
-27. Open **/src/App.js**, and inside our `App` component above our `return()` statement we will create a new function to handle form submissions to create a new task and update our state.
+30. Open **/src/App.jsx**, and inside our `App` component above our `return()` statement we will create a new function to handle form submissions to create a new task and update our state.
 
 ```jsx
 function addTask(newTask) {
@@ -274,7 +279,7 @@ this method receives an argument `newTask` that will be passed in from our form.
 
 In order for the AddTask component to be able to access this method we will have to pass a reference to it using props.
 
-28. Inside the `return()` statement, add a prop on the `<AddTask />` element to pass a reference to the `addTask` method. This way addTask can be called from inside the AddTask component. Let's also add another prop called `lastId={}`
+31. Inside the `return()` statement, add a prop in the `<AddTask />` element to pass a reference to the `addTask` method. This way addTask can be called from inside the AddTask component. Let's also add another prop called `lastId={}`
 
 ```jsx
 <AddTask addTask={addTask} lastId={tasks.length} />
@@ -282,7 +287,7 @@ In order for the AddTask component to be able to access this method we will have
 
 Now this method can now be called outside of the `App` component inside the `AddTask` component.
 
-29. Let's head back to **/src/AddTask.js**, we would like to create a state property we will call `uniqueId` to identify each individual task. You might ask why not just use the length of array and add 1 to it each time we create a new task. This poses some issues in that our array length will always be changed as we add and also remove tasks. To solve this, we will have a dedicated number called `uniqueId` that will always continue forward by 1 each time a new task is created regardless if the array changes. This is why we are passing in the length of the initial state `tasks`, so that the `uniqueId` continues from there. This is a common strategy used for id numbers in databases as well.
+32. Let's head back to **/src/AddTask.jsx**, we would like to create a state property we will call `uniqueId` to identify each individual task. You might ask why not just use the length of array and add 1 to it each time we create a new task. This poses some issues in that our array length will always be changed as we add and also remove tasks. To solve this, we will have a dedicated number called `uniqueId` that will always continue forward by 1 each time a new task is created regardless if the array changes. This is why we are passing in the length of the initial state `tasks`, so that the `uniqueId` continues from there. This is a common strategy used for id numbers in databases as well.
 
 Add the following code to your AddTask component:
 
@@ -300,7 +305,7 @@ function AddTask(props) {
 
 Note that inside of `useState()` we are adding 1 to the initial value. This is to avoid a bug that has to do with `setState()` being asynchronous and the creation of a new task object being synchronous.
 
-30. Next, add a new class method above our `return()` statement and call it `handleSubmit()`. Include the following code:
+33. Next, add a new class method above our `return()` statement and call it `handleSubmit()`. Include the following code:
 
 ```jsx
 function handleSubmit(e) {
@@ -321,21 +326,21 @@ function handleSubmit(e) {
 }
 ```
 
-31. Then on our `<form>` element add `onSubmit={}` pointing to our newly created `handleSubmit()` function.
+34. Then in our `<form>` element add `onSubmit={}` pointing to our newly created `handleSubmit()` function.
 
 ```jsx
 <form onSubmit={handleSubmit}>
 ```
 
-32. Save all files and check your work in the browser. At this point, you should be able to type new task descriptions and submitting the form will add your new task displayed on screen.
+35. Save all files and check your work in the browser. At this point, you should be able to type new task descriptions and submitting the form will add your new task displayed on screen.
 
 ## Removing Data In Our State
 
 We would like the "X" buttons next to each task to remove that task from our state and thus remove the task from our screen.
 
-33. Head back to the file
+36. Head back to the file
 
-34. Open **/src/App.js**, and inside our `App` component above our `return()` statement we will create a new function to handle clicks from our remove button.
+37. Open **/src/App.jsx**, and inside our `App` component above our `return()` statement we will create a new function to handle clicks from our remove button.
 
 ```jsx
 function removeTask(taskId) {
@@ -353,13 +358,13 @@ This function receives an argument `taskId` that will be passed from our Task co
 
 In order for the Task component to be able to access this method, we will have to pass a reference to it using props.
 
-35. Inside the `return` statement, add a prop on the `<Task />` element to pass a reference to the `removeTask` function. This way, removeTask can be called from inside of the Task component. Since the `key={}` attribute is reserved by React and not an accesible prop on our child component, we will also add a new attribute called `id={}` so we can pass the unique id as a prop into our Task component.
+38. Inside the `return` statement, add a prop in the `<Task />` element to pass a reference to the `removeTask` function. This way, removeTask can be called from inside of the Task component. Since the `key={}` attribute is reserved by React and not an accesible prop on our child component, we will also add a new attribute called `id={}` so we can pass the unique id as a prop into our Task component.
 
 ```jsx
 <Task key={task.id} task={task} removeTask={removeTask} />
 ```
 
-36. Let's head back to **/src/Task.js**, and on our `<button>` let's add an id attribute to store our unique id number. This will help us identify which task to remove.
+39. Let's head back to **/src/Task.jsx**, and in our `<button>` let's add an id attribute to store our unique id number. This will help us identify which task to remove.
 
 ```jsx
 <button id={props.task.id} className="btn btn-danger">
@@ -367,7 +372,7 @@ In order for the Task component to be able to access this method, we will have t
 </button>
 ```
 
-37. Next, we want to add a new function above our `return()` statement and call it `handleClick()`. Include the following code:
+40. Next, we want to add a new function above our `return()` statement and call it `handleClick()`. Include the following code:
 
 ```jsx
 function handleClick(e) {
@@ -378,7 +383,7 @@ function handleClick(e) {
 
 Note that we are using `parseInt()` to convert the id number which is a type of string into a number so it will be easier to match with the id number on a task in our tasks array.
 
-38. Back on our `<button>` we want to add our `onClick={}` event listener.
+41. Back in our `<button>` we want to add our `onClick={}` event listener.
 
 ```jsx
 <button id={props.task.id} className="btn btn-danger" onClick={handleClick}>
@@ -386,17 +391,17 @@ Note that we are using `parseInt()` to convert the id number which is a type of 
 </button>
 ```
 
-39. Save all your files and test in the browser. Now the remove buttons work to remove tasks.
+42. Save all your files and test in the browser. Now the remove buttons work to remove tasks.
 
 ## Adding Style To Each Task Based On Importance
 
-40. In **/src/App.js** add this CSS file import code after the other imports
+43. In **/src/App.jsx** add this CSS file import code after the other imports
 
 ```javascript
 import "./App.css";
 ```
 
-41. Open **/src/App.css** and replace all the CSS code in that file with the following:
+44. Open **/src/App.css** and replace all the CSS code in that file with the following:
 
 ```css
 body {
@@ -468,10 +473,10 @@ ol li.high {
 }
 ```
 
-42. In **/src/Task.js**, in the `<li>` add the `className()` attribute and pass it `props.task.importance`.
+45. In **/src/Task.jsx**, in the `<li>` add the `className()` attribute and pass it `props.task.importance`.
 
 ```jsx
 <li className={props.task.importance}>
 ```
 
-43. Save all your files and check your work in the browser.
+46. Save all your files and check your work in the browser.

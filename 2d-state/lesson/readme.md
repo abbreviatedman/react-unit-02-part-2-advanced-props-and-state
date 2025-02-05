@@ -1,7 +1,5 @@
 # State
 
-`npx create-react-app state`
-
 Component "state" refers to data declared within a component that is subject to change. When a change occurs, the component is then refreshed and updated with the newly changed "state"
 
 Certain functions that React gives us out of the box allow us to schedule and update to a component’s state object. When state changes, the component responds by re-rendering.
@@ -275,7 +273,7 @@ function Button(props) {
 export default Button;
 ```
 
-And this is what the updated `Fruits.js` looks like using our new buttons:
+And this is what the updated `Fruits.jsx` looks like using our new buttons:
 
 ```js
 import React, { useState } from "react";
